@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: streamly-bot
+    runtime: python
+    plan: free
+    region: singapore
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: python bot.py
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: TOKEN
+        sync: false
+      - key: ADMIN_ID
+        sync: false
+      - key: BOT_USERNAME
+        value: Tik_video_57_bot
+    healthCheckPath: /health
